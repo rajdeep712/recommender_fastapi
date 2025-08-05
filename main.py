@@ -60,7 +60,7 @@ def recommend_movies(request: MovieRequest):
 
     # Query the nn_model for neighbors.
     # Here, we ask for (top_n + len(fav_codes)) neighbors to ensure that if some favorites are returned, we can skip them.
-    top_n = 10
+    top_n = 200
     distances, neighbor_indices = nn_model.kneighbors(avg_vector, n_neighbors=top_n + len(indices))
     neighbor_indices = neighbor_indices[0]
 
